@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import {useState } from "react";
 import QRCode from "qrcode";
 import Image from "next/image";
 
@@ -7,17 +7,21 @@ export default function Home() {
     const [user, setUser] = useState();
     const [src, setSrc] = useState();
 
+
     const generate = () => {
-        QRCode.toDataURL(`${user}`, function (err, url) {
-            setSrc(url);
-        });
+        QRCode.toDataURL(
+            `https://picsum.photos/id/815/200/300`,
+            function (err, url) {
+                setSrc(url);
+            }
+        );
     };
 
     return (
         <>
             <div className="flex flex-col justify-center items-center">
                 <input
-                    className="border-2 border-black mx-4 mt-4"
+                    className="border-2 border-black mx-4 mt-4 text-xl"
                     type="text"
                     value={user}
                     onChange={(e) => {
